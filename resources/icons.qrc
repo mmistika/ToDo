@@ -1,0 +1,16 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icons/all.svg</file>
+        <file>icons/arrows-left.svg</file>
+        <file>icons/important.svg</file>
+        <file>icons/no-icon-list.svg</file>
+        <file>icons/planned.svg</file>
+        <file>icons/plus.svg</file>
+        <file>icons/settings.svg</file>
+        <file>icons/timeless.svg</file>
+        <file>icons/today.svg</file>
+        <file>icons/arrows-right.svg</file>
+        <file>icons/reset.svg</file>
+        <file>icons/arrows-left-dark.svg</file>
+    </qresource>
+</RCC>

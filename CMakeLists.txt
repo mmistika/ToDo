@@ -19,6 +19,11 @@ set(TS_FILES
 )
 source_group("Translation Files" ${TS_FILES})
 
+set(QRC_FILES
+    resources/icons.qrc
+)
+source_group("Resource Files" ${QRC_FILES})
+
 set(UI_FILES
     ui/window.ui
 )
@@ -30,6 +35,7 @@ set(PROJECT_SOURCES
         window.h
 
         ${UI_FILES}
+        ${QRC_FILES}
         ${TS_FILES}
 )
 
