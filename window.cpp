@@ -30,6 +30,10 @@ void Window::preconfigureUi()
     };
 
     setShadow(widgetList);
+
+    // Hide unnessary buttons on start
+    ui->backMenuButton->setVisible(false);
+    ui->showMenuButton->setVisible(false);
 }
 
 void Window::setShadow(QWidgetList &wgtList)
