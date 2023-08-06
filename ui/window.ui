@@ -2,18 +2,970 @@
 <ui version="4.0">
  <class>Window</class>
  <widget class="QWidget" name="Window">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>889</width>
+    <height>532</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Window</string>
+   <string>ToDo</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">/* Global styles */
+
+* {
+	color: rgb(52, 58, 65);
+	font-weight: 600;
+}
+
+QFrame {
+	border: none;
+	background-color: transparent;
+}
+
+/* Window background styles*/
+
+#Window, #windowContentFrame {
+	background-color: rgb(248, 250, 252);
+}
+
+#windowContentFrame {
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: rgba(0, 0, 0, 15);
+}
+
+/* Removes unnecessary styles of some containers */
+
+QScrollArea, QScrollArea &gt; QWidget &gt; QWidget {
+	border: none;
+	background-color: transparent;
+}
+
+/* QScrollBar's background styles */
+
+QScrollBar:vertical, QScrollBar:horizontal {
+    border: none;
+    background: transparent;
+}
+
+QScrollBar:vertical { width: 4px; }
+QScrollBar:horizontal { height: 4px; }
+
+/* QScrollBar's handle styles */
+
+QScrollBar::handle:vertical,
+QScrollBar::handle:horizontal {
+    background: rgb(173, 181, 189);
+	border-radius: 2px;
+}
+
+QScrollBar::handle:vertical:hover,
+QScrollBar::handle:horizontal:hover {
+    background: rgb(52, 58, 64);
+}
+
+/* Removes QScrollBar's up/down buttons by settings the sizes to zero */
+
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical,
+QScrollBar::add-line:horizontal, QScrollBar::sub-line:horizontal
+{ width: 0px; height: 0px; }
+
+/*  Card styles */
+
+QFrame[class=&quot;card&quot;] {
+	border-radius: 6px;
+	border: 1px solid rgba(0, 0, 0, 15);
+	background-color: rgb(255, 255, 255);
+}
+
+/* Search text input style */
+
+QLineEdit {
+	padding: 3px 10px;
+	border: 1px solid rgba(0, 0, 0, 15);
+	border-radius: 12px;
+	background-color: rgb(248, 250, 252);
+}
+
+QLineEdit:focus {
+	border-radius: 8px;
+	border-color: rgb(77, 171, 247);
+}
+
+/* Adds bottom border as a separator between custom and default lists */
+
+#menuTopButtonsContainer {
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: rgba(0, 0, 0, 15);
+}
+
+/* Adds top border as a separator between custom lists and bottom menu buttons*/
+
+#menuBottomButtonsContainer {
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: rgba(0, 0, 0, 15);
+}
+
+/* Buttons styles */
+
+/* hide menu button */
+
+#hideMenuButton {
+	border: 1px solid rgba(0, 0, 0, 15);
+	border-radius: 12px;
+	background-color: rgb(248, 250, 252);
+
+}
+
+#hideMenuButton:pressed {
+	border-color: rgb(77, 171, 247);
+}
+
+/* checkable menu buttons */
+
+#menuContainer QPushButton[checkable=true] {
+	border: none;
+	border-left-width: 5px;
+	border-left-style: solid;
+	border-left-color: rgb(255, 255, 255);
+	background: transparent;
+	padding: 8px;
+	font-size: 14px;
+	text-align:left;
+}
+
+#menuContainer QPushButton[checkable=true]:hover {
+	background-color: rgb(231, 245, 255);
+	border-left-color: rgb(231, 245, 255);
+}
+
+#menuContainer QPushButton[checkable=true]:checked {
+	border-left-color: rgb(77, 171, 247);
+	background-color: rgb(231, 245, 255);
+	font-weight: bold;
+	font-size: 13px;
+}
+
+/* checkable tag bar buttons */
+
+#tagBar QPushButton {
+	border: 1px solid rgba(0, 0, 0, 15);
+	background-color: rgb(255, 255, 255);
+	border-radius: 12px;
+}
+
+#tagBar QPushButton[checkable=true] {
+	padding: 0px 8px;
+}
+
+#tagBar QPushButton:hover {
+	background-color: rgb(248, 249, 250);
+}
+
+#tagBar QPushButton[checkable=true]:checked,
+#tagBar QPushButton[checkable=false]:pressed {
+	background-color: rgb(231, 245, 255);
+	border-color: rgb(77, 171, 247);
+}
+
+/* flat */
+
+QPushButton[flat=true] {
+	border: none;
+	background: transparent;
+	font-size: 13px;
+	font-weight: bold;
+	text-align:left;
+	color: rgb(51, 154, 240);
+	padding: 9px;
+}
+
+QPushButton[flat=true]:pressed {
+	background-color: rgb(231, 245, 255);
+}</string>
+  </property>
+  <layout class="QHBoxLayout" name="horizontalLayout">
+   <property name="spacing">
+    <number>0</number>
+   </property>
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <item>
+    <widget class="QFrame" name="windowContentFrame">
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <property name="spacing">
+       <number>0</number>
+      </property>
+      <property name="leftMargin">
+       <number>5</number>
+      </property>
+      <property name="topMargin">
+       <number>5</number>
+      </property>
+      <property name="rightMargin">
+       <number>3</number>
+      </property>
+      <property name="bottomMargin">
+       <number>5</number>
+      </property>
+      <item>
+       <widget class="QFrame" name="menuContainer">
+        <property name="minimumSize">
+         <size>
+          <width>200</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>200</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Sunken</enum>
+        </property>
+        <property name="class" stdset="0">
+         <string>card</string>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_13">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QFrame" name="menuSearchContainer">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::StyledPanel</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Raised</enum>
+           </property>
+           <layout class="QHBoxLayout" name="horizontalLayout_12">
+            <property name="spacing">
+             <number>5</number>
+            </property>
+            <property name="leftMargin">
+             <number>5</number>
+            </property>
+            <property name="topMargin">
+             <number>5</number>
+            </property>
+            <property name="rightMargin">
+             <number>5</number>
+            </property>
+            <property name="bottomMargin">
+             <number>5</number>
+            </property>
+            <item>
+             <widget class="QLineEdit" name="searchMenuLineEdit">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>24</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>24</height>
+               </size>
+              </property>
+              <property name="focusPolicy">
+               <enum>Qt::ClickFocus</enum>
+              </property>
+              <property name="placeholderText">
+               <string>Search Tasks</string>
+              </property>
+              <property name="clearButtonEnabled">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item alignment="Qt::AlignRight">
+             <widget class="QPushButton" name="hideMenuButton">
+              <property name="minimumSize">
+               <size>
+                <width>24</width>
+                <height>24</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>24</width>
+                <height>24</height>
+               </size>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="icon">
+               <iconset resource="../resources/icons.qrc">
+                <normaloff>:/icons/arrows-left.svg</normaloff>:/icons/arrows-left.svg</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>16</width>
+                <height>16</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QFrame" name="menuTopButtonsContainer">
+           <property name="frameShape">
+            <enum>QFrame::StyledPanel</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Raised</enum>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_16">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>2</number>
+            </property>
+            <item>
+             <widget class="QPushButton" name="allMenuButton">
+              <property name="text">
+               <string>  All</string>
+              </property>
+              <property name="icon">
+               <iconset resource="../resources/icons.qrc">
+                <normaloff>:/icons/all.svg</normaloff>:/icons/all.svg</iconset>
+              </property>
+              <property name="checkable">
+               <bool>true</bool>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+              <property name="autoExclusive">
+               <bool>true</bool>
+              </property>
+              <attribute name="buttonGroup">
+               <string notr="true">menuChackableButtonGroup</string>
+              </attribute>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="todayMenuButton">
+              <property name="font">
+               <font>
+                <pointsize>-1</pointsize>
+                <bold>true</bold>
+                <kerning>true</kerning>
+               </font>
+              </property>
+              <property name="text">
+               <string>  Today</string>
+              </property>
+              <property name="icon">
+               <iconset resource="../resources/icons.qrc">
+                <normaloff>:/icons/today.svg</normaloff>:/icons/today.svg</iconset>
+              </property>
+              <property name="checkable">
+               <bool>true</bool>
+              </property>
+              <property name="autoExclusive">
+               <bool>true</bool>
+              </property>
+              <attribute name="buttonGroup">
+               <string notr="true">menuChackableButtonGroup</string>
+              </attribute>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="importantMenuButton">
+              <property name="text">
+               <string>  Important</string>
+              </property>
+              <property name="icon">
+               <iconset resource="../resources/icons.qrc">
+                <normaloff>:/icons/important.svg</normaloff>:/icons/important.svg</iconset>
+              </property>
+              <property name="checkable">
+               <bool>true</bool>
+              </property>
+              <property name="autoExclusive">
+               <bool>true</bool>
+              </property>
+              <attribute name="buttonGroup">
+               <string notr="true">menuChackableButtonGroup</string>
+              </attribute>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="plannedMenuButton">
+              <property name="text">
+               <string>  Planned</string>
+              </property>
+              <property name="icon">
+               <iconset resource="../resources/icons.qrc">
+                <normaloff>:/icons/planned.svg</normaloff>:/icons/planned.svg</iconset>
+              </property>
+              <property name="checkable">
+               <bool>true</bool>
+              </property>
+              <property name="autoExclusive">
+               <bool>true</bool>
+              </property>
+              <attribute name="buttonGroup">
+               <string notr="true">menuChackableButtonGroup</string>
+              </attribute>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="timelessMenuButton">
+              <property name="text">
+               <string>  Timeless</string>
+              </property>
+              <property name="icon">
+               <iconset resource="../resources/icons.qrc">
+                <normaloff>:/icons/timeless.svg</normaloff>:/icons/timeless.svg</iconset>
+              </property>
+              <property name="checkable">
+               <bool>true</bool>
+              </property>
+              <property name="autoExclusive">
+               <bool>true</bool>
+              </property>
+              <attribute name="buttonGroup">
+               <string notr="true">menuChackableButtonGroup</string>
+              </attribute>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QScrollArea" name="menuScrollArea">
+           <property name="widgetResizable">
+            <bool>true</bool>
+           </property>
+           <widget class="QWidget" name="menuScrollAreaContentContainer">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>0</y>
+              <width>198</width>
+              <height>270</height>
+             </rect>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_14">
+             <property name="spacing">
+              <number>0</number>
+             </property>
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>2</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>0</number>
+             </property>
+             <item>
+              <spacer name="menuSpacer">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>40</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
+           </widget>
+          </widget>
+         </item>
+         <item>
+          <widget class="QFrame" name="menuBottomButtonsContainer">
+           <layout class="QHBoxLayout" name="horizontalLayout_11">
+            <property name="spacing">
+             <number>5</number>
+            </property>
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <item alignment="Qt::AlignLeft">
+             <widget class="QPushButton" name="newListMenuButton">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>35</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>35</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>New list</string>
+              </property>
+              <property name="icon">
+               <iconset resource="../resources/icons.qrc">
+                <normaloff>:/icons/plus.svg</normaloff>:/icons/plus.svg</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>16</width>
+                <height>16</height>
+               </size>
+              </property>
+              <property name="flat">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="settingsMenuButton">
+              <property name="minimumSize">
+               <size>
+                <width>35</width>
+                <height>35</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>35</width>
+                <height>35</height>
+               </size>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="icon">
+               <iconset resource="../resources/icons.qrc">
+                <normaloff>:/icons/settings.svg</normaloff>:/icons/settings.svg</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>16</width>
+                <height>16</height>
+               </size>
+              </property>
+              <property name="flat">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QFrame" name="contentContainer">
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_15">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>1</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QFrame" name="tagBar">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::StyledPanel</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Raised</enum>
+           </property>
+           <layout class="QHBoxLayout" name="horizontalLayout_9">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="QFrame" name="tagBarControlsContainer">
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+              <layout class="QHBoxLayout" name="horizontalLayout_10">
+               <property name="spacing">
+                <number>2</number>
+               </property>
+               <property name="leftMargin">
+                <number>5</number>
+               </property>
+               <property name="topMargin">
+                <number>5</number>
+               </property>
+               <property name="rightMargin">
+                <number>3</number>
+               </property>
+               <property name="bottomMargin">
+                <number>5</number>
+               </property>
+               <item>
+                <widget class="QPushButton" name="backMenuButton">
+                 <property name="minimumSize">
+                  <size>
+                   <width>24</width>
+                   <height>24</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>24</width>
+                   <height>24</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="../resources/icons.qrc">
+                   <normaloff>:/icons/arrows-left-dark.svg</normaloff>:/icons/arrows-left-dark.svg</iconset>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="showMenuButton">
+                 <property name="minimumSize">
+                  <size>
+                   <width>24</width>
+                   <height>24</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>24</width>
+                   <height>24</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="../resources/icons.qrc">
+                   <normaloff>:/icons/arrows-right.svg</normaloff>:/icons/arrows-right.svg</iconset>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="resetTagButton">
+                 <property name="minimumSize">
+                  <size>
+                   <width>24</width>
+                   <height>24</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>24</width>
+                   <height>24</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="../resources/icons.qrc">
+                   <normaloff>:/icons/reset.svg</normaloff>:/icons/reset.svg</iconset>
+                 </property>
+                 <property name="iconSize">
+                  <size>
+                   <width>14</width>
+                   <height>14</height>
+                  </size>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item alignment="Qt::AlignVCenter">
+             <widget class="QScrollArea" name="tagBarScrollArea">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>35</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>35</height>
+               </size>
+              </property>
+              <property name="verticalScrollBarPolicy">
+               <enum>Qt::ScrollBarAlwaysOff</enum>
+              </property>
+              <property name="widgetResizable">
+               <bool>true</bool>
+              </property>
+              <widget class="QWidget" name="tagBarScrollAreaContentContainer">
+               <property name="geometry">
+                <rect>
+                 <x>0</x>
+                 <y>0</y>
+                 <width>597</width>
+                 <height>35</height>
+                </rect>
+               </property>
+               <layout class="QHBoxLayout" name="horizontalLayout_8">
+                <property name="spacing">
+                 <number>3</number>
+                </property>
+                <property name="leftMargin">
+                 <number>3</number>
+                </property>
+                <property name="topMargin">
+                 <number>5</number>
+                </property>
+                <property name="rightMargin">
+                 <number>3</number>
+                </property>
+                <property name="bottomMargin">
+                 <number>5</number>
+                </property>
+                <item>
+                 <spacer name="tagBarSpacer">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </widget>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QStackedWidget" name="contentStackedArea">
+           <property name="currentIndex">
+            <number>2</number>
+           </property>
+           <widget class="QWidget" name="settingsPage"/>
+           <widget class="QWidget" name="controlsPage"/>
+           <widget class="QWidget" name="contentPage">
+            <layout class="QVBoxLayout" name="verticalLayout_4">
+             <property name="spacing">
+              <number>0</number>
+             </property>
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>0</number>
+             </property>
+             <item>
+              <widget class="QScrollArea" name="contentScrollArea">
+               <property name="horizontalScrollBarPolicy">
+                <enum>Qt::ScrollBarAlwaysOff</enum>
+               </property>
+               <property name="widgetResizable">
+                <bool>true</bool>
+               </property>
+               <widget class="QWidget" name="contentScrollAreaContentContainer">
+                <property name="geometry">
+                 <rect>
+                  <x>0</x>
+                  <y>0</y>
+                  <width>681</width>
+                  <height>485</height>
+                 </rect>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_2">
+                 <property name="spacing">
+                  <number>5</number>
+                 </property>
+                 <property name="leftMargin">
+                  <number>5</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>3</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <spacer name="contentSpacer">
+                   <property name="orientation">
+                    <enum>Qt::Vertical</enum>
+                   </property>
+                   <property name="sizeType">
+                    <enum>QSizePolicy::Expanding</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>20</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                </layout>
+               </widget>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+           <widget class="QWidget" name="messagePage"/>
+           <widget class="QWidget" name="errorPage"/>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="../resources/icons.qrc"/>
+ </resources>
  <connections/>
+ <buttongroups>
+  <buttongroup name="menuChackableButtonGroup"/>
+ </buttongroups>
 </ui>
