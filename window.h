@@ -16,6 +16,12 @@ public:
     ~Window();
 
 private:
+    void preconfigureUi();
+
+    void setShadow(QWidget *&wgt);
+    void setShadow(QWidgetList &wgtList);
+
+private:
     Ui::Window *ui;
 };
 #endif // WINDOW_H
