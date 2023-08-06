@@ -3,13 +3,13 @@
 
 #include <QGraphicsDropShadowEffect>
 
-
 Window::Window(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::Window)
 {
     ui->setupUi(this);
     preconfigureUi();
+    setupConnections();
 }
 
 Window::~Window()
@@ -44,6 +44,12 @@ void Window::preconfigureUi()
     ui->showMenuButton->setVisible(false);
 }
 
+void Window::setupConnections()
+{
+    connect(ui->hideMenuButton, &QPushButton::clicked, this, &Window::hideMenu);
+    connect(ui->showMenuButton, &QPushButton::clicked, this, &Window::showMenu);
+}
+
 void Window::setShadow(QWidgetList &wgtList)
 {
     for (auto wgt : wgtList) { setShadow(wgt); }
@@ -61,3 +67,29 @@ void Window::setShadow(QWidget *&wgt)
     wgt->setGraphicsEffect(shadowEffect);
 }
 
+void Window::hideMenu()
+{
+    QMargins margins = ui->windowContentFrame->layout()->contentsMargins();
+
+    _menuLeftOffset = margins.left();
+    ui->windowContentFrame->layout()->setContentsMargins(0,
+                                                         margins.top(),
+                                                         margins.right(),
+                                                         margins.bottom()
+                                                         );
+    ui->menuContainer->setVisible(false);
+    ui->showMenuButton->setVisible(true);
+}
+
+void Window::showMenu()
+{
+    QMargins margins = ui->windowContentFrame->layout()->contentsMargins();
+
+    ui->windowContentFrame->layout()->setContentsMargins(_menuLeftOffset,
+                                                         margins.top(),
+                                                         margins.right(),
+                                                         margins.bottom()
+                                                         );
+    ui->menuContainer->setVisible(true);
+    ui->showMenuButton->setVisible(false);
+}

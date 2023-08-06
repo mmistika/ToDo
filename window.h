@@ -17,9 +17,14 @@ public:
 
 private:
     void preconfigureUi();
+    void setupConnections();
 
     void setShadow(QWidget *&wgt);
     void setShadow(QWidgetList &wgtList);
+
+    int _menuLeftOffset;
+    void hideMenu();
+    void showMenu();
 
 private:
     Ui::Window *ui;
