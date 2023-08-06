@@ -31,7 +31,15 @@ void Window::preconfigureUi()
 
     setShadow(widgetList);
 
-    // Hide unnessary buttons on start
+    // Add search icon for search QLineEdit
+    ui->searchMenuLineEdit->addAction(QIcon(":/icons/search.svg"),
+                                      QLineEdit::LeadingPosition);
+
+    // Change clear icon of search QLineEdit
+    ui->searchMenuLineEdit->findChild<QAction*>("_q_qlineeditclearaction")
+        ->setIcon(QIcon(":/icons/clear.svg"));
+
+    // Hide unnecessary buttons on start
     ui->backMenuButton->setVisible(false);
     ui->showMenuButton->setVisible(false);
 }
