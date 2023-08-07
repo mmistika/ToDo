@@ -351,7 +351,7 @@ QPushButton[flat=true]:pressed {
                <string/>
               </property>
               <property name="icon">
-               <iconset resource="../resources/icons.qrc">
+               <iconset resource="../../../resources/icons.qrc">
                 <normaloff>:/icons/arrows-left.svg</normaloff>:/icons/arrows-left.svg</iconset>
               </property>
               <property name="iconSize">
@@ -395,7 +395,7 @@ QPushButton[flat=true]:pressed {
                <string>  All</string>
               </property>
               <property name="icon">
-               <iconset resource="../resources/icons.qrc">
+               <iconset resource="../../../resources/icons.qrc">
                 <normaloff>:/icons/all.svg</normaloff>:/icons/all.svg</iconset>
               </property>
               <property name="checkable">
@@ -425,7 +425,7 @@ QPushButton[flat=true]:pressed {
                <string>  Today</string>
               </property>
               <property name="icon">
-               <iconset resource="../resources/icons.qrc">
+               <iconset resource="../../../resources/icons.qrc">
                 <normaloff>:/icons/today.svg</normaloff>:/icons/today.svg</iconset>
               </property>
               <property name="checkable">
@@ -445,7 +445,7 @@ QPushButton[flat=true]:pressed {
                <string>  Important</string>
               </property>
               <property name="icon">
-               <iconset resource="../resources/icons.qrc">
+               <iconset resource="../../../resources/icons.qrc">
                 <normaloff>:/icons/important.svg</normaloff>:/icons/important.svg</iconset>
               </property>
               <property name="checkable">
@@ -465,7 +465,7 @@ QPushButton[flat=true]:pressed {
                <string>  Planned</string>
               </property>
               <property name="icon">
-               <iconset resource="../resources/icons.qrc">
+               <iconset resource="../../../resources/icons.qrc">
                 <normaloff>:/icons/planned.svg</normaloff>:/icons/planned.svg</iconset>
               </property>
               <property name="checkable">
@@ -485,7 +485,7 @@ QPushButton[flat=true]:pressed {
                <string>  Timeless</string>
               </property>
               <property name="icon">
-               <iconset resource="../resources/icons.qrc">
+               <iconset resource="../../../resources/icons.qrc">
                 <normaloff>:/icons/timeless.svg</normaloff>:/icons/timeless.svg</iconset>
               </property>
               <property name="checkable">
@@ -585,7 +585,7 @@ QPushButton[flat=true]:pressed {
                <string>New list</string>
               </property>
               <property name="icon">
-               <iconset resource="../resources/icons.qrc">
+               <iconset resource="../../../resources/icons.qrc">
                 <normaloff>:/icons/plus.svg</normaloff>:/icons/plus.svg</iconset>
               </property>
               <property name="iconSize">
@@ -617,7 +617,7 @@ QPushButton[flat=true]:pressed {
                <string/>
               </property>
               <property name="icon">
-               <iconset resource="../resources/icons.qrc">
+               <iconset resource="../../../resources/icons.qrc">
                 <normaloff>:/icons/settings.svg</normaloff>:/icons/settings.svg</iconset>
               </property>
               <property name="iconSize">
@@ -739,7 +739,7 @@ QPushButton[flat=true]:pressed {
                   <string/>
                  </property>
                  <property name="icon">
-                  <iconset resource="../resources/icons.qrc">
+                  <iconset resource="../../../resources/icons.qrc">
                    <normaloff>:/icons/arrows-left-dark.svg</normaloff>:/icons/arrows-left-dark.svg</iconset>
                  </property>
                 </widget>
@@ -762,7 +762,7 @@ QPushButton[flat=true]:pressed {
                   <string/>
                  </property>
                  <property name="icon">
-                  <iconset resource="../resources/icons.qrc">
+                  <iconset resource="../../../resources/icons.qrc">
                    <normaloff>:/icons/arrows-right.svg</normaloff>:/icons/arrows-right.svg</iconset>
                  </property>
                 </widget>
@@ -785,7 +785,7 @@ QPushButton[flat=true]:pressed {
                   <string/>
                  </property>
                  <property name="icon">
-                  <iconset resource="../resources/icons.qrc">
+                  <iconset resource="../../../resources/icons.qrc">
                    <normaloff>:/icons/reset.svg</normaloff>:/icons/reset.svg</iconset>
                  </property>
                  <property name="iconSize">
@@ -962,7 +962,7 @@ QPushButton[flat=true]:pressed {
   </layout>
  </widget>
  <resources>
-  <include location="../resources/icons.qrc"/>
+  <include location="../../../resources/icons.qrc"/>
  </resources>
  <connections/>
  <buttongroups>

@@ -10,7 +10,6 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_AUTOUIC_SEARCH_PATHS ${CMAKE_SOURCE_DIR}/ui)
 
 find_package(Qt6 REQUIRED COMPONENTS Widgets LinguistTools)
 
@@ -25,14 +24,14 @@ set(QRC_FILES
 source_group("Resource Files" ${QRC_FILES})
 
 set(UI_FILES
-    ui/window.ui
+    src/ui/window/window.ui
 )
 source_group("UI Files" ${UI_FILES})
 
 set(PROJECT_SOURCES
-        main.cpp
-        window.cpp
-        window.h
+        src/main.cpp
+        src/ui/window/window.cpp
+        src/ui/window/window.h
 
         ${UI_FILES}
         ${QRC_FILES}
