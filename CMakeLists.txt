@@ -16,26 +16,32 @@ find_package(Qt6 REQUIRED COMPONENTS Widgets LinguistTools)
 set(TS_FILES
     translations/ToDo_en_US.ts
 )
+message(${TS_FILES})
 source_group("Translation Files" ${TS_FILES})
 
 set(QRC_FILES
     resources/icons.qrc
 )
+message(${QRC_FILES})
 source_group("Resource Files" ${QRC_FILES})
 
 set(UI_FILES
     src/ui/window/window.ui
+    src/ui/taskcard/taskcard.ui
 )
-source_group("UI Files" ${UI_FILES})
+message(${UI_FILES})
+source_group("UI Files" FILES ${UI_FILES})
 
 set(PROJECT_SOURCES
-        src/main.cpp
-        src/ui/window/window.cpp
-        src/ui/window/window.h
+    src/main.cpp
+    src/ui/window/window.cpp
+    src/ui/window/window.h
+    src/ui/taskcard/taskcard.cpp
+    src/ui/taskcard/taskcard.h
 
-        ${UI_FILES}
-        ${QRC_FILES}
-        ${TS_FILES}
+    ${UI_FILES}
+    ${QRC_FILES}
+    ${TS_FILES}
 )
 
 qt_add_executable(ToDo
