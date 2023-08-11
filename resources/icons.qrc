@@ -14,5 +14,11 @@
         <file>icons/arrows-left-dark.svg</file>
         <file>icons/search.svg</file>
         <file>icons/clear.svg</file>
+        <file>icons/important-dark.svg</file>
+        <file>icons/check-circle.svg</file>
+        <file>icons/circle.svg</file>
+        <file>icons/check-important.svg</file>
+        <file>icons/check-circle-disabled.svg</file>
+        <file>icons/important-dark-disabled.svg</file>
     </qresource>
 </RCC>

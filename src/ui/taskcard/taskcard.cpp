@@ -1,5 +1,5 @@
 #include "taskcard.h"
-#include "ui_taskcard.h"
+#include "./ui_taskcard.h"
 
 TaskCard::TaskCard(QWidget *parent) :
     QFrame(parent),

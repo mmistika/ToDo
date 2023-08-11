@@ -79,7 +79,7 @@ QScrollBar::add-line:horizontal, QScrollBar::sub-line:horizontal
 
 /*  Card styles */
 
-QFrame[class=&quot;card&quot;] {
+#menuContainer {
 	border-radius: 6px;
 	border: 1px solid rgba(0, 0, 0, 15);
 	background-color: rgb(255, 255, 255);
@@ -252,9 +252,6 @@ QPushButton[flat=true]:pressed {
         </property>
         <property name="frameShadow">
          <enum>QFrame::Sunken</enum>
-        </property>
-        <property name="class" stdset="0">
-         <string>card</string>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_13">
          <property name="spacing">
