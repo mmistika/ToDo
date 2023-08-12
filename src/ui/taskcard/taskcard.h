@@ -15,6 +15,9 @@ public:
     explicit TaskCard(QWidget *parent = nullptr);
     ~TaskCard();
 
+signals:
+    void importanceChanged(bool state);
+
 private:
     Ui::TaskCard *ui;
 };
