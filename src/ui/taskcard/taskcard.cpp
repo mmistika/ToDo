@@ -7,15 +7,15 @@ TaskCard::TaskCard(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    connect(ui->checkBox, &QCheckBox::clicked, this, [&](bool state)
+            {
+                emit this->completionChanged(state);
+            });
+
     connect(ui->importantCheckBox, &QCheckBox::clicked, this, [&](bool state)
             {
-        emit this->importanceChanged(state);
-    });
-
-    connect(this, &TaskCard::importanceChanged, this, [&](bool state)
-            {
-        qDebug() << "emitted : " << state;
-    });
+                emit this->importanceChanged(state);
+            });
 }
 
 TaskCard::~TaskCard()

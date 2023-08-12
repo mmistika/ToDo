@@ -16,6 +16,7 @@ public:
     ~TaskCard();
 
 signals:
+    void completionChanged(bool state);
     void importanceChanged(bool state);
 
 private:
