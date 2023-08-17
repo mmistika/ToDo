@@ -34,6 +34,11 @@ void Window::preconfigureUi()
               8,
               widgetList);
 
+    setShadow(QColor(17, 12, 46, 38),
+              QPoint(1, 1),
+              8,
+              ui->addButton);
+
     // Add search icon for search QLineEdit
     ui->searchMenuLineEdit->addAction(QIcon(":/icons/search.svg"),
                                       QLineEdit::LeadingPosition);
