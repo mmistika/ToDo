@@ -19,8 +19,8 @@ private:
     void preconfigureUi();
     void setupConnections();
 
-    void setShadow(QWidget *&wgt);
-    void setShadow(QWidgetList &wgtList);
+    void setShadow(const QColor &color, const QPoint &offset, const int &blurRadius, QWidget *wgt);
+    void setShadow(const QColor &color, const QPoint &offset, const int &blurRadius, QWidgetList &wgtList);
 
     int _menuLeftOffset;
     void hideMenu();

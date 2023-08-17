@@ -29,7 +29,10 @@ void Window::preconfigureUi()
         ui->resetTagButton
     };
 
-    setShadow(widgetList);
+    setShadow(QColor(99, 99, 99, 51),
+              QPoint(0, 1),
+              8,
+              widgetList);
 
     // Add search icon for search QLineEdit
     ui->searchMenuLineEdit->addAction(QIcon(":/icons/search.svg"),
@@ -50,19 +53,18 @@ void Window::setupConnections()
     connect(ui->showMenuButton, &QPushButton::clicked, this, &Window::showMenu);
 }
 
-void Window::setShadow(QWidgetList &wgtList)
+void Window::setShadow(const QColor &color, const QPoint &offset, const int &blurRadius, QWidgetList &wgtList)
 {
-    for (auto wgt : wgtList) { setShadow(wgt); }
+    for (auto wgt : wgtList) { setShadow(color, offset, blurRadius, wgt); }
 }
 
-void Window::setShadow(QWidget *&wgt)
+void Window::setShadow(const QColor &color, const QPoint &offset, const int &blurRadius, QWidget *wgt)
 {
     QGraphicsDropShadowEffect *shadowEffect = new QGraphicsDropShadowEffect;
 
-    shadowEffect->setColor(QColor(99, 99, 99, 51));
-    shadowEffect->setOffset(0, 1);
-    shadowEffect->setBlurRadius(8);
-    shadowEffect->setXOffset(0);
+    shadowEffect->setColor(color);
+    shadowEffect->setOffset(offset.x(), offset.y());
+    shadowEffect->setBlurRadius(blurRadius);
 
     wgt->setGraphicsEffect(shadowEffect);
 }
