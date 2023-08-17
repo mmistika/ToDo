@@ -202,12 +202,11 @@ QPushButton[flat=true]:pressed {
 }
 
 #addButton:hover {
-	border: 2px solid rgb(77, 171, 247);
 	background-color: rgb(231, 245, 255);
 }
 
 #addButton:pressed {
-	border: 2px solid rgb(28, 126, 214);
+	border: 2px solid rgb(77, 171, 247);
 }</string>
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout">
