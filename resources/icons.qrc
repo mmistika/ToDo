@@ -20,5 +20,6 @@
         <file>icons/check-important.svg</file>
         <file>icons/check-circle-disabled.svg</file>
         <file>icons/important-dark-disabled.svg</file>
+        <file>icons/plus-white.svg</file>
     </qresource>
 </RCC>
