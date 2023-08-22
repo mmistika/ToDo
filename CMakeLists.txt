@@ -36,6 +36,8 @@ set(PROJECT_SOURCES
     src/ui/window/window.h
     src/ui/taskcard/taskcard.cpp
     src/ui/taskcard/taskcard.h
+    src/ui/cstackedwidget/cstackedwidget.cpp
+    src/ui/cstackedwidget/cstackedwidget.h
     ${UI_FILES}
     ${QRC_FILES}
     ${TS_FILES}
