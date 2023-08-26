@@ -1,7 +1,7 @@
 #include "window.h"
 #include "./ui_window.h"
 
-#include <QGraphicsDropShadowEffect>
+#include "../utils/utils.h"
 
 Window::Window(QWidget *parent)
     : QWidget(parent)
@@ -29,7 +29,7 @@ void Window::preconfigureUi()
         ui->resetTagButton
     };
 
-    setShadow(QColor(99, 99, 99, 51),
+    ui_utils::setShadow(QColor(99, 99, 99, 51),
               QPoint(0, 1),
               8,
               widgetList);
@@ -51,22 +51,6 @@ void Window::setupConnections()
 {
     connect(ui->hideMenuButton, &QPushButton::clicked, this, &Window::hideMenu);
     connect(ui->showMenuButton, &QPushButton::clicked, this, &Window::showMenu);
-}
-
-void Window::setShadow(const QColor &color, const QPoint &offset, const int &blurRadius, QWidgetList &wgtList)
-{
-    for (auto wgt : wgtList) { setShadow(color, offset, blurRadius, wgt); }
-}
-
-void Window::setShadow(const QColor &color, const QPoint &offset, const int &blurRadius, QWidget *wgt)
-{
-    QGraphicsDropShadowEffect *shadowEffect = new QGraphicsDropShadowEffect;
-
-    shadowEffect->setColor(color);
-    shadowEffect->setOffset(offset.x(), offset.y());
-    shadowEffect->setBlurRadius(blurRadius);
-
-    wgt->setGraphicsEffect(shadowEffect);
 }
 
 void Window::hideMenu()
