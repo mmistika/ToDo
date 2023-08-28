@@ -79,3 +79,34 @@ void Window::showMenu()
     ui->menuContainer->setVisible(true);
     ui->showMenuButton->setVisible(false);
 }
+
+// Сreate masks and apply them to pages of a QStackedWidget
+// in order to mask mouse events and achieve a widget overlay effect
+void Window::updateStackedWidgetMasks()
+{
+    QRect rect = ui->addButton->frameGeometry();
+    int buttonBorderRadius = 16;
+
+    // Make the mask slightly larger to avoid clipping of button corners
+    int outerOffset = 1;
+    rect.adjust(-outerOffset * 2,
+                -outerOffset * 2,
+                outerOffset * 2,
+                outerOffset * 2);
+
+    QRegion mask = ui_utils::getRoundedRegion(rect, buttonBorderRadius + outerOffset);
+    ui->controlsPage->setMask(mask);
+}
+
+void Window::resizeEvent(QResizeEvent *event)
+{
+    updateStackedWidgetMasks();
+    return QWidget::resizeEvent(event);
+}
+
+void Window::showEvent(QShowEvent *event)
+{
+    if (!_isMaskUpdatedOnShow)
+        updateStackedWidgetMasks();
+    return QWidget::showEvent(event);
+}

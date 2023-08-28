@@ -15,6 +15,10 @@ public:
     Window(QWidget *parent = nullptr);
     ~Window();
 
+protected:
+    void resizeEvent(QResizeEvent *event);
+    void showEvent(QShowEvent *event);
+
 private:
     void preconfigureUi();
     void setupConnections();
@@ -22,6 +26,9 @@ private:
     int _menuLeftOffset;
     void hideMenu();
     void showMenu();
+
+    bool _isMaskUpdatedOnShow{false};
+    void updateStackedWidgetMasks();
 
 private:
     Ui::Window *ui;
