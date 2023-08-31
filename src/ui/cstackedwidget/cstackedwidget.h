@@ -16,7 +16,7 @@ public:
     };
 
 public:
-    CStackedWidget(StackingMode stackingMode);
+    CStackedWidget(StackingMode stackingMode = StackAll);
 
     void setStackingMode(StackingMode stackingMode);
 
