@@ -12,12 +12,18 @@ class TaskCard : public QFrame
     Q_OBJECT
 
 public:
-    explicit TaskCard(QWidget *parent = nullptr);
+    TaskCard(const QString &text,
+                      bool isCompleted = 0,
+                      bool isImportant = 0,
+                      QWidget *parent = nullptr);
     ~TaskCard();
 
 signals:
     void completionChanged(bool state);
     void importanceChanged(bool state);
+
+private:
+    void setupConnections();
 
 private:
     Ui::TaskCard *ui;

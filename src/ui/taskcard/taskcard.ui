@@ -139,7 +139,7 @@ QCheckBox::indicator {
       </font>
      </property>
      <property name="text">
-      <string>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</string>
+      <string/>
      </property>
      <property name="wordWrap">
       <bool>true</bool>
