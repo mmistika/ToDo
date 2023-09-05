@@ -32,6 +32,8 @@ source_group("UI Files" FILES ${UI_FILES})
 
 set(PROJECT_SOURCES
     src/main.cpp
+    src/core/database/database.cpp
+    src/core/database/database.h
     src/ui/window/window.cpp
     src/ui/window/window.h
     src/ui/taskcard/taskcard.cpp
