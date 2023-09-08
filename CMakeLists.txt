@@ -32,6 +32,7 @@ source_group("UI Files" FILES ${UI_FILES})
 
 set(PROJECT_SOURCES
     src/main.cpp
+    src/common/commondatatypes.h
     src/core/database/database.cpp
     src/core/database/database.h
     src/ui/window/window.cpp
