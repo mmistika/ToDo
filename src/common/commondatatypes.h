@@ -20,6 +20,7 @@ struct Task
     QString text;
     bool isImportant;
     QString dueDate;
+    int groupId;
 };
 
 using TaskList = std::vector<Task>;
