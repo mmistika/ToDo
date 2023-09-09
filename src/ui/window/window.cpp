@@ -65,6 +65,7 @@ void Window::hideMenu()
                                                          );
     ui->menuContainer->setVisible(false);
     ui->showMenuButton->setVisible(true);
+    updateStackedWidgetMasks();
 }
 
 void Window::showMenu()
@@ -78,6 +79,7 @@ void Window::showMenu()
                                                          );
     ui->menuContainer->setVisible(true);
     ui->showMenuButton->setVisible(false);
+    updateStackedWidgetMasks();
 }
 
 // Сreate masks and apply them to pages of a QStackedWidget
