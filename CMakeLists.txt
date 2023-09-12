@@ -35,6 +35,7 @@ set(PROJECT_SOURCES
     src/common/commondatatypes.h
     src/core/database/database.cpp
     src/core/database/database.h
+    src/core/database/database/idatabase.h
     src/ui/window/window.cpp
     src/ui/window/window.h
     src/ui/taskcard/taskcard.cpp
